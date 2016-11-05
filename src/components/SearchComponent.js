@@ -11,18 +11,37 @@ class SearchComponent extends React.Component {
   constructor(props) {
     super(props);
 
-    SearchAction.changeCurrentUser({username: 'username123'});
     this.state = {
-      username: SearchStore.getCurrentUserName()
+      username: ''
     }
   }
 
+  onUsernameChange(e) {
+    this.setState({
+      username: e.target.value
+    })
+  }
+
+  onChangeBtnClick() {
+    SearchAction.changeCurrentUser({ username: this.state.username });
+  }
 
   render() {
-    var self = this;
     return (
       <div className="search-component">searccomp:
-        {self.state.username}
+        <div>Github client</div>
+        <div>
+          <div>
+            Enter your username:  
+          </div>
+          <div>
+            <input type="text" name="username" 
+                  placeholder="Enter your username..."
+                  onChange={this.onUsernameChange.bind(this)}
+                    />
+            <button onClick={this.onChangeBtnClick.bind(this)}>Change</button>
+          </div>
+        </div>
       </div>
     );
   }
