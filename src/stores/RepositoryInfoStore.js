@@ -17,10 +17,7 @@ class RepositoryInfoStore extends EventEmitter {
     }
 
     handleActions(action) {
-        console.log(action.type + " " + action.task);
         switch (action.type) {
-            case 'CREATE_TODO':
-                break;
         }
     }
 }

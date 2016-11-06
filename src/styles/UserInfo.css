@@ -1,3 +1,15 @@
 .userinfo-component {
   border: 1px dashed #f00;
 }
+
+.row {
+  display: table-row;
+}
+
+.row > div {
+  display: table-cell
+}
+
+.main-user-details {
+  list-style-type: none;
+}

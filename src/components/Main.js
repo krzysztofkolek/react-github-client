@@ -4,21 +4,22 @@ require('styles/App.css');
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import RepositoryInfoComponent from './RepositoryInfoComponent';
 import SearchComponent from './SearchComponent';
 import UserInfoComponent from './UserInfoComponent';
-
-
-
+import RepositoryInfoComponent from './RepositoryInfoComponent';
 
 class AppComponent extends React.Component {
   render() {
     return (
       <div className="index">
+        <div className="top">
+          <SearchComponent />
+        </div>
         <div className="left">
-        asd <SearchComponent />
+          <UserInfoComponent />
         </div>
         <div className="right">
+          <RepositoryInfoComponent />
         </div>
       </div>
     );

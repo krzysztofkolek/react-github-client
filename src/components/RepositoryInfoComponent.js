@@ -3,13 +3,13 @@
 require('styles//RepositoryInfo.css');
 
 import React from 'react';
-import * as SearchAction from '../actions/RepositoryInfoAction'
+import * as RepositoryInfoAction from '../actions/RepositoryInfoAction'
 
 class RepositoryInfoComponent extends React.Component {
   render() {
     return (
       <div className="repositoryinfo-component">
-        Please edit src/components///RepositoryInfoComponent.js to update this component!
+        RepositoryInfoComponent
       </div>
     );
   }
