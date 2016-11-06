@@ -1,19 +1,22 @@
 import { EventEmitter } from 'events'
+import axios from 'axios'
 import dispatcher from '../dispatcher/Dispatcher'
+import SearchStore from '../stores/SearchStore'
 
 class RepositoryInfoStore extends EventEmitter {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
           username: ''
         };
 
         SearchStore.on("usernamechanged", () => {
-          this.setState({
-            username: SearchStore.getCurrentUserName()
-          });
-          console.log('UserInfoStore' + SearchStore.getCurrentUserName());
+          this.state.username = SearchStore.getCurrentUserName();
         });
+    }
+
+    getRepositoryData() {
+
     }
 
     handleActions(action) {
@@ -23,7 +26,7 @@ class RepositoryInfoStore extends EventEmitter {
 }
 
 const repositoryInfoStore = new RepositoryInfoStore();
-//console.log('repositoryInfoStore register');
+
 dispatcher.register(repositoryInfoStore.handleActions.bind(repositoryInfoStore));
 
 export default repositoryInfoStore;

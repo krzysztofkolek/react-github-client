@@ -16,7 +16,6 @@ class UserInfoStore extends EventEmitter {
     }
 
     getUser(payload) {
-        //return this.state.username;
         return {
             name: this.state.username,
             login: this.state.login,
@@ -62,7 +61,7 @@ class UserInfoStore extends EventEmitter {
             .then(function(response) {
                 self.state.name = response.data.name;
                 self.state.login = response.data.login;
-                self.state.url = response.data.url;
+                self.state.url = response.data.html_url;
                 self.state.location = response.data.location;
                 self.state.imgUrl = response.data.avatar_url;
             })

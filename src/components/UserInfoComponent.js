@@ -12,7 +12,7 @@ class UserInfoComponent extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state ={
+    this.state = {
       name: '',
       login: '',
       url: '',
@@ -29,11 +29,7 @@ class UserInfoComponent extends React.Component {
         var response = UserInfoStore.getUserData();
         response.then(function(result) {
           self.setState(result);
-        })
-        
-                     //.then(function(data){
-                     //  self.state = data;
-                     //});                
+        })              
       });
   }
   
