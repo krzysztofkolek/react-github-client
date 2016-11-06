@@ -2,6 +2,10 @@
   border: 1px dashed #f00;
 }
 
+.right-top {
+  vertical-align: top;
+}
+
 .row {
   display: table-row;
 }
@@ -10,6 +14,11 @@
   display: table-cell
 }
 
-.main-user-details {
+li {
   list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: white;
 }

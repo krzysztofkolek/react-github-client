@@ -19,3 +19,17 @@ body {
   border-width: 1px 0;
   background: #666;
 }
+
+.left {
+  width: 50%;
+}
+
+.right {
+  width: 50%;
+}
+
+.content-container {
+  width: 100%;
+  display: flex;
+}
+ 

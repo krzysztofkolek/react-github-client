@@ -15,11 +15,13 @@ class AppComponent extends React.Component {
         <div className="top">
           <SearchComponent />
         </div>
-        <div className="left">
-          <UserInfoComponent />
-        </div>
-        <div className="right">
-          <RepositoryInfoComponent />
+        <div className="content-container">
+          <div className="left">
+            <UserInfoComponent />
+          </div>
+          <div className="right">
+            <RepositoryInfoComponent />
+          </div>
         </div>
       </div>
     );

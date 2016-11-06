@@ -63,11 +63,13 @@ class UserInfoComponent extends React.Component {
         </div>
         <div className="row">
           <div className="right-bottom">
+            Followers
             <ul>
               {this.renderFollowers()}
             </ul>
           </div>
           <div className="left-bottom">
+            Following
             <ul>
               {this.renderFollowing()}
             </ul>

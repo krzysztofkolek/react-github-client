@@ -33,9 +33,9 @@ class RepositoryInfoStore extends EventEmitter {
     getRepositoryList() {
         var self = this;
         return axios.all([this.getRepositoryListRequest()])
-            .then(function(result) {
-                return result[0];
-            });
+                    .then(function(result) {
+                        return result[0];
+                    });
     }
     
     getSelectedRepositoryData(selectedRepositoryName) {
@@ -97,7 +97,7 @@ class RepositoryInfoStore extends EventEmitter {
             .then(function(response) {
                 var pullRequests = response.data.map(function(pullRequest) {
                     return {
-                      
+
                     };
                 });
                 return pullRequests;
