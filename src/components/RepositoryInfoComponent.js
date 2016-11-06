@@ -13,32 +13,59 @@ class RepositoryInfoComponent extends React.Component {
     super(props);
 
     this.state = { 
+      selectedRepo: '',
+      repos: []
     }
   }
 
   componentWillMount() {
     var self = this;
     SearchStore.on('usernamechanged', () => {
-        var response = RepositoryInfoStore.getRepositoryData();
-        response.then(function(result) {
-          self.setState(result);
+        var response = RepositoryInfoStore.getRepositoryList();
+        response.then(function(repos) {
+          self.setState({
+            selectedRepo: repos[0],
+            repos: repos
+          });
         })              
     });
   }
 
   availableRepositories() {
-    return <option>asd</option>
+    return this.state.repos.map(function(repo, index) {
+      return <option key={index}>{ repo }</option>
+    });
   }
-
+  
   renderCommits() {
     return  <div>
-              renderCommits
+              {this.state.commits.map(function(commit, index){
+                return <div key={index}>
+                        <div>
+                          {commit.author.name}
+                        </div>
+                        <div>
+                          {commit.author.email}
+                        </div>
+                        <div>
+                          {commit.author.date}
+                        </div>
+                        <div>
+                          {commit.message}
+                        </div>
+                       </div>
+              })}
             </div>
-  }
+  }  
+
 
   renderForks() {
     return  <div>
-              renderForks
+              {this.state.forks.map(function(fork, index){
+                return <div key={index}>
+                          {fork.full_name}
+                       </div>
+              })}
             </div>
   }
 
@@ -50,11 +77,14 @@ class RepositoryInfoComponent extends React.Component {
 
   renderContributors() {
     return  <div>
-              renderContributors
+              {this.state.contributors.map(function(contributor, index){
+                return <div key={index}>
+                          {contributor.login}
+                       </div>
+              })}
             </div>
   }
-
-
+  
   renderContent() {
     switch (this.state.activeContent) {
       case 'commits':
@@ -75,13 +105,21 @@ class RepositoryInfoComponent extends React.Component {
     })
   }
 
+  onSelectChange(e) { 
+    var self = this;
+    var response = RepositoryInfoStore.getSelectedRepositoryData(e.target.value);
+        response.then(function(result) {
+          self.setState(result);
+        })              
+  }
+
   render() {
     return (
       <div className="repositoryinfo-component">
         <div>
             <div>
               repositories: 
-              <select>
+              <select onChange={this.onSelectChange.bind(this)} value={this.state.selectedRepo}>
                 {this.availableRepositories()}
               </select>
             </div>
