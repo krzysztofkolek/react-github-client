@@ -1,5 +1,9 @@
-.userinfo-component {
-  border: 1px dashed #f00;
+.userinfo-component { 
+  width: 90%;
+  height: 100%;
+  -webkit-box-shadow: 0px 0px 10px rgba(0,0,0,.8);
+  -moz-box-shadow: 0px 0px 10px rgba(0,0,0,.8);
+  box-shadow: 0px 0px 10px rgba(0,0,0,.8);
 }
 
 .right-top {
@@ -8,6 +12,7 @@
 
 .row {
   display: table-row;
+  
 }
 
 .row > div {
