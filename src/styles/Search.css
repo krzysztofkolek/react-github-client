@@ -10,3 +10,12 @@
     margin-left: 2%;
     margin-right: 2.8%;
 }
+
+#app > div > div.top > div > div:nth-child(2) > div > button {
+  margin-top: 15px;
+}
+
+#app > div > div.top > div > div:nth-child(1) {
+  font-weight: bold;
+  font-size: 25px;
+}

@@ -110,7 +110,7 @@ class RepositoryInfoComponent extends React.Component {
     var response = RepositoryInfoStore.getSelectedRepositoryData(e.target.value);
         response.then(function(result) {
           self.setState(result);
-        })              
+        });              
   }
 
   render() {
@@ -118,7 +118,7 @@ class RepositoryInfoComponent extends React.Component {
       <div className="repositoryinfo-component">
         <div>
             <div>
-              repositories: 
+              Repositories: 
               <select onChange={this.onSelectChange.bind(this)} value={this.state.selectedRepo}>
                 {this.availableRepositories()}
               </select>

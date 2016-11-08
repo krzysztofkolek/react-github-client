@@ -6,6 +6,7 @@ import React from 'react';
 import * as SearchAction from '../actions/SearchAction'
 import SearchStore from '../stores/SearchStore'
 import dispatcher from '../dispatcher/Dispatcher'
+import * as MainAction from '../actions/MainAction'
 
 class SearchComponent extends React.Component {
   constructor(props) {
@@ -22,24 +23,23 @@ class SearchComponent extends React.Component {
     })
   }
 
-  onChangeBtnClick() {
+  onChangeBtnClick() {    
+    
     SearchAction.changeCurrentUser({ username: this.state.username });
+    MainAction.setComponentsAsVisible();
   }
 
   render() {
     return (
-      <div className="search-component">searccomp:
+      <div className="search-component">
         <div>Github client</div>
-        <div>
-          <div>
-            Enter your username:  
-          </div>
+        <div> 
           <div>
             <input type="text" name="username" 
                   placeholder="Enter your username..."
                   onChange={this.onUsernameChange.bind(this)}
                     />
-            <button onClick={this.onChangeBtnClick.bind(this)}>Change</button>
+            <button onClick={this.onChangeBtnClick.bind(this)}>Search</button>
           </div>
         </div>
       </div>

@@ -7,6 +7,25 @@
   padding: 20px;
   left: 2px;
 }
+
 #app > div > div.content-container > div.right > div > div:nth-child(1) > div:nth-child(2) {
   display: -webkit-inline-box;
+}
+
+#app > div > div.content-container > div.right > div > div:nth-child(2) > div {
+  height: 500px;
+  overflow: auto;
+}
+
+#app > div > div.content-container > div.right > div > div:nth-child(2) > div > div { 
+  background: #48C6D4; 
+
+}
+
+#app > div > div.content-container > div.right > div > div:nth-child(2) > div > div:nth-child(odd) { 
+  background: #3EACBA; 
+}
+
+#app > div > div.content-container > div.right > div > div:nth-child(1) > div:nth-child(1) > select {
+  margin-left: 20px;
 }

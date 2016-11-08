@@ -27,3 +27,11 @@ a {
   text-decoration: none;
   color: white;
 }
+
+#app > div > div.content-container > div.left > div > div:nth-child(1) > div.left-top > img {
+  margin-left: 20px;
+}
+
+#app > div > div.content-container > div.left > div > div:nth-child(2) > div.right-bottom {
+  padding-left: 20px;
+}
