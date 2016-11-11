@@ -13,6 +13,7 @@ class RepositoryInfoComponent extends React.Component {
     super(props);
 
     this.state = { 
+      login: '',
       selectedRepo: '',
       repos: []
     }
@@ -21,13 +22,16 @@ class RepositoryInfoComponent extends React.Component {
   componentWillMount() {
     var self = this;
     SearchStore.on('usernamechanged', () => {
+      if(self.state.login != SearchStore.getCurrentUserName()) {
         var response = RepositoryInfoStore.getRepositoryList();
         response.then(function(repos) {
           self.setState({
+            login: SearchStore.getCurrentUserName(),
             selectedRepo: repos[0],
             repos: repos
           });
-        })              
+        }) 
+      }             
     });
   }
 

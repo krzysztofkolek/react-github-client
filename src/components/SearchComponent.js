@@ -18,9 +18,8 @@ class SearchComponent extends React.Component {
   }
 
   componentWillMount() {
-    var self = this;
+      var self = this;
       SearchStore.on('usernamechanged', () => {
-        console.log('SearchComponent componentWillMount')
         MainAction.setComponentsAsVisible();
       });
   }

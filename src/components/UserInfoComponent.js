@@ -26,10 +26,12 @@ class UserInfoComponent extends React.Component {
   componentWillMount() {
     var self = this;
       SearchStore.on('usernamechanged', () => {
-        var response = UserInfoStore.getUserData();
-        response.then(function(result) {
-          self.setState(result);
-        })              
+        if(self.state.login != SearchStore.getCurrentUserName()) {
+          var response = UserInfoStore.getUserData();
+          response.then(function(result) {
+            self.setState(result);
+          }) 
+        }             
       });
   }
   

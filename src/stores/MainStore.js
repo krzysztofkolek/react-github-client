@@ -19,6 +19,7 @@ class MainStore extends EventEmitter {
           componentsVisible: true
         }; 
         this.emit('componentsshouldbevisible');
+        SearchStore.forceReEmittOfUserChange();
     }
 
     handleActions(action) {        

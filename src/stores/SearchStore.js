@@ -7,12 +7,16 @@ class SearchStore extends EventEmitter {
     }
 
     setusername(input) {
-      this.username = input.payload.username;
-      this.emit('usernamechanged');
+        this.username = input.payload.username;
+        this.emit('usernamechanged');
+    }
+
+    forceReEmittOfUserChange() {
+        this.emit('usernamechanged');
     }
 
     getCurrentUserName() {
-      return this.username;
+        return this.username;
     }
 
     handleActions(action) {
