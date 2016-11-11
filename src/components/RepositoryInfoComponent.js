@@ -111,6 +111,7 @@ class RepositoryInfoComponent extends React.Component {
 
   onSelectChange(e) { 
     var self = this;
+    self.state.selectedRepo = e.target.value;
     var response = RepositoryInfoStore.getSelectedRepositoryData(e.target.value);
         response.then(function(result) {
           self.setState(result);
