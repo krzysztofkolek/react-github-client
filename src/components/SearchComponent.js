@@ -17,25 +17,31 @@ class SearchComponent extends React.Component {
     }
   }
 
+  componentWillMount() {
+    var self = this;
+      SearchStore.on('usernamechanged', () => {
+        console.log('SearchComponent componentWillMount')
+        MainAction.setComponentsAsVisible();
+      });
+  }
+
   onUsernameChange(e) {
     this.setState({
       username: e.target.value
     })
   }
 
-  onChangeBtnClick() {    
-    
+  onChangeBtnClick() {
     SearchAction.changeCurrentUser({ username: this.state.username });
-    MainAction.setComponentsAsVisible();
   }
 
   render() {
     return (
       <div className="search-component">
         <div>Github client</div>
-        <div> 
+        <div>
           <div>
-            <input type="text" name="username" 
+            <input type="text" name="username"
                   placeholder="Enter your username..."
                   onChange={this.onUsernameChange.bind(this)}
                     />
